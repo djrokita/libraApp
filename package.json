@@ -1,0 +1,33 @@
+{
+  "name": "libraapp",
+  "version": "1.0.0",
+  "description": "Simple web application to manage and store your read books.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djrokita/libraApp.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "rest",
+    "api",
+    "books",
+    "storage"
+  ],
+  "author": "Krzych Pierzchała",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djrokita/libraApp/issues"
+  },
+  "homepage": "https://github.com/djrokita/libraApp#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.2"
+  }
+}

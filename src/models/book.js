@@ -7,11 +7,20 @@ const BookSchema = new Schema({
         required: [true, 'Title is required']
     },
     author: String,
-    read: {
-        type: Boolean,
-        default: true
+    isbn: String,
+    rate: Number,
+    readInfo: {
+        dateStart: Date,
+        dateEnd: {
+            type: Date,
+            required: true
+        },
+        readingTime: Number
     },
-    isbn: Number
+    uploadDate: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Book = mongoose.model('book', BookSchema);

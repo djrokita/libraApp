@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const Book = require('./../models/book');
 
 router.get('/books', (req, res) => {
     res.send({ type: 'GET'});
 });
 
 router.post('/books', (req, res) => {
-    console.log('req-body', req.body);
-    res.send({
-        type: 'POST',
-        body: req.body
-    });
+    Book.create(req.body).then((item) => {
+        res.send(item);
+        console.log('Saved document into db');
+    })
 });
 
 router.put('/books:id', (req, res) => {

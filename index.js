@@ -1,8 +1,12 @@
 const express = require('express');
 const routes = require('./src/routes/api');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const localPort = 4000;
+
+mongoose.connect('mongodb://localhost/library');
+mongoose.Promise = global.Promise;
 
 const app = express();
 

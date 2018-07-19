@@ -1,12 +1,12 @@
 const express = require('express');
-
-const app = express();
+const routes = require('./src/routes/api');
+const bodyParser = require('body-parser');
 
 const localPort = 4000;
 
-app.get('/', function(req, res) {
-    console.log('Paszoł GET request');
-    res.send({name: "Kasia", type: "GET"});
-});
+const app = express();
+
+app.use(bodyParser.json());
+app.use('/api', routes);
 
 app.listen(process.env.port || localPort, () => console.log('Server is listening'));

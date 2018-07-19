@@ -13,4 +13,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/api', routes);
 
+//Error handler
+app.use((err, req, res, next) => {
+    res.status(400).send({error: err.message});
+})
+
 app.listen(process.env.port || localPort, () => console.log('Server is listening'));

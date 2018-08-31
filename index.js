@@ -2,15 +2,22 @@ const express = require('express');
 const routes = require('./src/routes/api');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+// const path = require('path');
 
 const localPort = 4000;
 
-mongoose.connect('mongodb://localhost/library');
+mongoose.connect('mongodb://localhost:27017/library');
+mongoose.connection.once('open', () => console.log('DB is connected'))
+    .on('error', (error) => console.log('Connection error:', error));
+
 mongoose.Promise = global.Promise;
 
 const app = express();
 
+app.use(express.static('static'));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/api', routes);
 
 //Error handler

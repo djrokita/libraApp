@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// mongoose.set('debug',true);
+
 const BookSchema = new Schema({
     title: {
         type: String,
@@ -13,7 +15,7 @@ const BookSchema = new Schema({
         dateStart: Date,
         dateEnd: {
             type: Date,
-            required: true
+            required: false // should be true - just for developing
         },
         readingTime: Number
     },

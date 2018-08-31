@@ -3,7 +3,6 @@ const router = express.Router();
 const Book = require('./../models/book');
 
 // GET handler
-
 router.get('/books', (req, res, next) => {
     let offset = parseInt(req.query.offset);
     let limit = parseInt(req.query.limit);
@@ -33,6 +32,7 @@ router.get('/books/:id', (req, res, next) => {
 
 router.post('/books', (req, res, next) => {
     Book.create(req.body).then((item) => {
+        // res.sendStatus(200); // TODO
         res.send(item);
         console.log('Saved document into db');
     })

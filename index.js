@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 // const path = require('path');
 
-const localPort = 4000;
+const localPort = 80;
 
-mongoose.connect('mongodb://localhost:27017/library');
+mongoose.connect('mongodb://db:27017/library');
 mongoose.connection.once('open', () => console.log('DB is connected'))
     .on('error', (error) => console.log('Connection error:', error));
 
